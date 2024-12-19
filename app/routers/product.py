@@ -3,6 +3,12 @@ from sqlalchemy.orm import Session
 from sqlalchemy.orm import joinedload
 from fastapi_pagination import Page, add_pagination, paginate
 from typing import List
+from fastapi_permissions import ( Allow,
+    Authenticated,
+    Deny,
+    Everyone,
+    configure_permissions,
+    list_permissions)
 
 from app.db.session import get_db
 from app.models.product import Product
