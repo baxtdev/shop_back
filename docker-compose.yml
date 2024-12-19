@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  fastapi:
+    build:
+      context: .
+    env_file:
+      - .env
+    volumes:
+      - .:/app:delegated
+    ports:
+      - "${PORT:-8000}:8000"
+    restart: always
+
+  adminer:
+    image: adminer
+    ports:
+      - "${ADMINER_PORT:-8080}:8080"
+    restart: always
+
+networks:
+  default:
+    name: fastapi_network
